@@ -1,1 +1,4 @@
-Arduino Bluetooth HC-08
+Arduino Bluetooth HC-05       https://www.gotronic.fr/art-module-bluetooth-hc05-26097.htm
+Bouton Poussoir               http://www.conrad.fr/ce/fr/product/071604/Bouton-poussoir-rouge-chrome?ref=list
+Solenoide                     https://www.gotronic.fr/art-solenoide-tubulaire-lz1335d-11898.htm
+Servo                         https://www.gotronic.fr/art-servomoteur-hitec-hs422-294.htm
