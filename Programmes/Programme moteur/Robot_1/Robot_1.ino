@@ -72,10 +72,7 @@ void loop()
 
 // lecture capteur infra
 //seuil suiveur de ligne blanc <100 noir>100
-GoUntil(SENS_DPIN);
-GoUp(500);
-GoUntil(SENS_DPIN);
-Join(SENS_DPIN);
+GoPerp();
 do {
 GoToCross();
 }
@@ -214,6 +211,44 @@ default:
 break;
 }
 }
+while(phase==false);
+}
+//-----------------------------------------------------------
+void GoPerp(){
+  bool phase=false;
+  int sensor;
+do{
+  LedCheck();
+  motors.setM2Speed(vitesseM2);
+  motors.setM1Speed(vitesseM1);
+delay(1);
+ if(100<analogRead(SENS_GPIN)){
+  phase=true;
+  sensor=SENS_GPIN;
+ }
+ if(100<analogRead(SENS_DPIN)){
+  phase=true;
+  sensor=SENS_DPIN;
+ }
+ }
+ 
+while(phase==false);
+phase=false;
+do{
+  LedCheck();
+ 
+switch(sensor){
+case SENS_DPIN:
+ if(100<analogRead(SENS_DPIN))JustRightBack(1);
+ if(100>analogRead(SENS_DPIN))JustLeft(1);
+ break;
+ case SENS_GPIN:
+ if(100<analogRead(SENS_GPIN))JustLeftBack(1);
+ if(100>analogRead(SENS_GPIN))JustRight(1);
+ break;
+}
+if(100<analogRead(SENS_DPIN)&&100<analogRead(SENS_GPIN))phase=true;
+ }
 while(phase==false);
 }
 //-----------------------------------------------------------------------------------------------------------------
