@@ -10,17 +10,17 @@
  */
 
  //Les pins du moteur 1 sont 7 et 9, moteur 2 sont 8 et 10.
-#define MODE_PIN 6
-
-#define LED_C 4 //BLEU
-#define LED_P 5 //VERT
-#define BOUTON 11
-#define SOL 12
+#define MODE_PIN 2
+#define LED_D 3
+#define LED_G 4
+#define LED_C 5
+#define BOUTON 12
+#define SOL 13
 
 #define SENS_DPIN 0 //Droite
 #define SENS_GPIN 1 //Gauche
 #define SENS_CPIN 2 //Croisement
-#define SENS_PPIN 3 //Palet
+#define SENS_DPIN 3 //Distance
 
 //La veritable vitesse max(PWM) est 400.
 #define MAX_S 200
@@ -39,10 +39,11 @@ void setup()
 
   Serial.begin(9600);
   
- 
+  pinMode(LED_D, OUTPUT);
+   pinMode(LED_G, OUTPUT);
 pinMode(LED_C, OUTPUT);
 pinMode(BOUTON, INPUT);
-
+pinMode(SOL, OUTPUT);
   //M2 est a gauche (correction de +25?); M1 est à droite
   
   // uncomment one or both of the following lines if your motors' directions need to be flipped
@@ -57,7 +58,11 @@ digitalWrite(BOUTON, HIGH);
 
 // Le bouton doit etre appuyé pour demarrer le programme
 bool phase0=false;
-  
+  do{
+  delay(1);
+  phase0=!digitalRead(BOUTON);
+}
+while(phase0==false);
 
 delay(1000);
 Serial.begin(9600);
@@ -70,9 +75,8 @@ void loop()
 // lecture capteur infra
 //seuil suiveur de ligne blanc <100 noir>100
 
-Serial.println(analogRead(3));
-
-
+if(digitalRead(BOUTON)==true)digitalWrite(SOL,HIGH);
+else digitalWrite(SOL,LOW);
 
   
 }
