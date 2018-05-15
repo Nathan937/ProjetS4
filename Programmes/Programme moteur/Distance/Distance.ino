@@ -70,10 +70,9 @@ void loop()
 // lecture capteur infra
 //seuil suiveur de ligne blanc <100 noir>100
 
+Serial.print(analogRead(4));
+Serial.print("====");
 Serial.println(analogRead(3));
-
-
-
   
 }
 
