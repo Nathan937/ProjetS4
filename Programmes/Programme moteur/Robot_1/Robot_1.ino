@@ -108,9 +108,9 @@ void loop()
 
   //LongeRight();
 
-  
 
-  
+
+
   Opti();
   pos = 20;
   bool M = false;
@@ -119,16 +119,16 @@ void loop()
   do {
 
     int sequ1 [28] =  {3, 1, 2, 1, 2, 1, 2, 4, 5, 6, 4, 1, 2, 1, 2, 4, 1, 2, 5, 6, 4, 1, 2, 1, 2, 4, 1, 2};
-    int pos1 [28] =  {20, 2, 2,25,25,58,58,58,87,87,87,74,74,41,41,41,12,12,23,23,23,36,36,69,69,69,98,98};
+    int pos1 [28] =  {20, 2, 2, 25, 25, 58, 58, 58, 87, 87, 87, 74, 74, 41, 41, 41, 12, 12, 23, 23, 23, 36, 36, 69, 69, 69, 98, 98};
 
     int sequ2 [21] =  {3, 1, 2, 3, 5, 6, 4, 1, 2, 1, 2, 4, 1, 2, 5, 6, 4, 1, 2, 1, 2};
-    int pos2 [21] =  {20, 2, 2, 2,23,23,23,36,36,69,69,69,98,98,87,87,87,74,74,41,41};
+    int pos2 [21] =  {20, 2, 2, 2, 23, 23, 23, 36, 36, 69, 69, 69, 98, 98, 87, 87, 87, 74, 74, 41, 41};
 
     int sequ3 [11] =  {3, 1, 2, 3, 1, 2, 4, 1, 2, 1, 2};
-    int pos3 [11] =  {20, 2, 2, 2,23,23,23,36,36,69,69};
+    int pos3 [11] =  {20, 2, 2, 2, 23, 23, 23, 36, 36, 69, 69};
 
     int sequ4 [11] =  {3, 1, 2, 4, 1, 2, 3, 1, 2, 1, 2};
-    int pos4 [11] =   {20, 2,2, 2,21,21,21,14,14,47,47};
+    int pos4 [11] =   {20, 2, 2, 2, 21, 21, 21, 14, 14, 47, 47};
 
     do {
       palet = false;
@@ -150,19 +150,19 @@ void loop()
           }
         }
 
-        if (M && !D && G)for (int i = 0; i < 11; i++) {
+      if (M && !D && G)for (int i = 0; i < 11; i++) {
           if (palet == false) {
             pos = pos3[i];
             Choix (sequ3[i]);
-            
+
           }
         }
 
-        if (M && D && !G )for (int i = 0; i < 11; i++) {
+      if (M && D && !G )for (int i = 0; i < 11; i++) {
           if (palet == false) {
             pos = pos4[i];
             Choix (sequ4[i]);
-            
+
           }
         }
     }
@@ -173,7 +173,7 @@ void loop()
 
 
 
-  
+
 
 
   // lecture capteur infra
@@ -201,206 +201,202 @@ void loop()
 void GoShoot()
 {
 
-if(pos==69){
-  BackP();
-  GoToCross();
-  Center();
-  pos=9;
-}
+  if (pos == 69) {
+    BackP();
+    GoToCross();
+    Center();
+    pos = 9;
+  }
 
-if(pos==89){
- CrossLeftWithP();
+  if (pos == 89) {
+    CrossLeftWithP();
 
-  pos=9;
-}
+    pos = 9;
+  }
 
-if(pos==9){
-  
-  GoToCross();
-  Center();
-  pos=96;
-}
+  if (pos == 9) {
 
-  
-
-if(pos==47){
-  BackP();
-  GoToCross();
-  Center();
-  pos=7;
-}
-
-if(pos==87){
- CrossRightWithP();
-
-  pos=7;
-}
-
-if(pos==7){
-  
-  GoToCross();
-  Center();
-  pos=74;
-}
+    GoToCross();
+    Center();
+    pos = 96;
+  }
 
 
 
-if(pos==36){
-  CrossRightWithP();
-  pos=6;
-}
+  if (pos == 47) {
+    BackP();
+    GoToCross();
+    Center();
+    pos = 7;
+  }
 
-if(pos==6){
-  JustLeft(400);
-  GoUntil(SENS_DPIN);
-  Join(SENS_DPIN);
-  GoToCross();
-  Center();
-  pos=52;
-}
+  if (pos == 87) {
+    CrossRightWithP();
+    pos = 7;
+  }
 
-if(pos==96){
-  JustRight(400);
-  GoUntil(SENS_DPIN);
-  Join(SENS_DPIN);
-  GoToCross();
-  Center();
-  pos=52;
-}
+  if (pos == 7) {
+    GoToCross();
+    Center();
+    pos = 74;
+  }
 
+  if (pos == 36) {
+    CrossRightWithP();
+    pos = 6;
+  }
 
-if(pos==14){
-  CrossLeftWithP();
-  pos=4;
-}
+  if (pos == 6) {
+    JustLeft(400);
+    GoUntil(SENS_DPIN);
+    Join(SENS_DPIN);
+    GoToCross();
+    Center();
+    pos = 52;
+  }
 
-
-if(pos==4){
-  JustRight(400);
-  GoUntil(SENS_GPIN);
-  Join(SENS_GPIN);
-  GoToCross();
-  Center();
-  pos=52;
-}
-
-if(pos==74){
-  JustLeft(400);
-  GoUntil(SENS_GPIN);
-  Join(SENS_GPIN);
-  GoToCross();
-  Center();
-  pos=52;
-}
-
-if(pos==23){
-  CrossLeftWithP();
-  BackP();
-  GoToCross();
-  Center();
-  pos=63;
-}
+  if (pos == 96) {
+    JustRight(400);
+    GoUntil(SENS_DPIN);
+    Join(SENS_DPIN);
+    GoToCross();
+    Center();
+    pos = 52;
+  }
 
 
-if(pos==63){
-  CrossLeftWithP();
-  pos=3;
-}
-
-if(pos==3){
-  GoToCross();
-  Center();
-  pos=32;
-}
+  if (pos == 14) {
+    CrossLeftWithP();
+    pos = 4;
+  }
 
 
-if(pos==21){
-  CrossRightWithP();
-  BackP();
-  GoToCross();
-  Center();
-  pos=41;
-}
+  if (pos == 4) {
+    JustRight(400);
+    GoUntil(SENS_GPIN);
+    Join(SENS_GPIN);
+    GoToCross();
+    Center();
+    pos = 52;
+  }
+
+  if (pos == 74) {
+    JustLeft(400);
+    GoUntil(SENS_GPIN);
+    Join(SENS_GPIN);
+    GoToCross();
+    Center();
+    pos = 52;
+  }
+
+  if (pos == 23) {
+    CrossRightWithP();
+    BackP();
+    GoToCross();
+    Center();
+    pos = 63;
+  }
 
 
-if(pos==41){
-  CrossLeftWithP();
-  pos=8;
-}
+  if (pos == 63) {
+    CrossLeftWithP();
+    pos = 3;
+  }
 
-if(pos==1){
-  GoToCross();
-  Center();
-  pos=12;
-}
+  if (pos == 3) {
+    GoToCross();
+    Center();
+    pos = 32;
+  }
 
 
-if(pos==58){
-  BackP();
-  GoToCross();
-  Center();
-  pos=8;
-}
+  if (pos == 21) {
+    CrossLeftWithP();
+    BackP();
+    GoToCross();
+    Center();
+    pos = 41;
+  }
 
-if(pos==98){
-  CrossRightWithP();
-  pos=8;
-}
-if(pos==78){
-  CrossLeftWithP();
-  pos=8;
-}
 
-if(pos==8){
-  GoToCross();
-  Center();
-  pos=85;
-}
+  if (pos == 41) {
+    CrossRighWithP();
+    pos = 1;
+  }
 
-if(pos==25){
-  BackP();
-  GoToCross();
-  Center();
-  pos=85;
-}
+  if (pos == 1) {
+    GoToCross();
+    Center();
+    pos = 12;
+  }
 
-if(pos==65){
-  CrossRightWithP();
-  pos=85;
-}
-if(pos==45){
-  CrossLeftWithP();
-  pos=85;
-}
 
-if(pos==85){
- GoToCross();
-  Center();
-  pos=52;
-}
+  if (pos == 58) {
+    BackP();
+    GoToCross();
+    Center();
+    pos = 8;
+  }
 
-if(pos==2){
-  BackP();
-  GoToCross();
-  Center();
-  pos=52;
-}
+  if (pos == 98) {
+    CrossRightWithP();
+    pos = 8;
+  }
+  if (pos == 78) {
+    CrossLeftWithP();
+    pos = 8;
+  }
 
-if(pos==32){
-  CrossRightWithP();
-  pos=52;
-}
-if(pos==12){
-  CrossLeftWithP();
-  pos=52;
-}
-if(pos==52){
-  GoToCross();
-  Shoot();
-  pos=20;
-}
+  if (pos == 8) {
+    GoToCross();
+    Center();
+    pos = 85;
+  }
 
-  
+  if (pos == 25) {
+    BackP();
+    GoToCross();
+    Center();
+    pos = 85;
+  }
+
+  if (pos == 65) {
+    CrossRightWithP();
+    pos = 85;
+  }
+  if (pos == 45) {
+    CrossLeftWithP();
+    pos = 85;
+  }
+
+  if (pos == 85) {
+    GoToCross();
+    Center();
+    pos = 52;
+  }
+
+  if (pos == 2) {
+    BackP();
+    GoToCross();
+    Center();
+    pos = 52;
+  }
+
+  if (pos == 32) {
+    CrossRightWithP();
+    pos = 52;
+  }
+  if (pos == 12) {
+    CrossLeftWithP();
+    pos = 52;
+  }
+  if (pos == 52) {
+    GoToCross();
+    Shoot();
+    pos = 20;
+  }
+
+
 }
 //-----------------------------------------------------------
 void Choix(int c)
@@ -433,6 +429,7 @@ void Choix(int c)
 
     case 7:
       Shoot();
+      break;
 
 
   }
@@ -472,7 +469,7 @@ void Opti()
   Center();
   GoToCross();
   Shoot();
-  
+
 }
 //-----------------------------------------------------------
 // Parcours Version ORTHO
@@ -559,13 +556,13 @@ void GoToCross() {
 
 }
 //-----------------------------------------------------------
-void BackP(){
+void BackP() {
   JustLeft(800);
-    JustRight(1700);
-    do{
-      JustRight(1);
-    }
-    while(analogRead(SENS_DPIN)<SEUILNOIR);
+  JustRight(1700);
+  do {
+    JustRight(1);
+  }
+  while (analogRead(SENS_DPIN) < SEUILNOIR);
 }
 //-----------------------------------------------------------
 void LongeRight() {
@@ -690,12 +687,14 @@ void GoToCrossRC() {
 
     a = hcsr04.distanceInMillimeters();
 
-    if (a < 39){
-    GoToCross();
-    Center();
-    GoShoot();
-    palet = true;
-    phase=true;
+    if (a < 39) {
+
+      GoToCross();
+      Center();
+      palet = true;
+      GoShoot();
+
+      phase = true;
     }
 
     if (25 >= analogRead(SENS_PGPIN) && palet == false) {
@@ -784,7 +783,7 @@ void CenterRC() {
     GoUp(50);
     if (SEUILNOIR < analogRead(SENS_DPIN) || SEUILNOIR < analogRead(SENS_GPIN)) phase = true;
   }
-  
+
   while (phase == false);
   GoUp(50);
   phase = false;
@@ -827,12 +826,13 @@ void CenterRC() {
 
     int a = hcsr04.distanceInMillimeters();
 
-    if (a < 39){
-    
-    Center();
-    GoShoot();
-    palet = true;
-    phase=true;
+    if (a < 39) {
+
+      Center();
+      palet = true;
+      GoShoot();
+
+      phase = true;
     }
 
     if (25 >= analogRead(SENS_PGPIN) && palet == false) {
@@ -842,9 +842,9 @@ void CenterRC() {
       JustLeft(300);
       GoUp(200);
       JustLeft(300);
-      do{
+      do {
         JustRight(1);
-      }while(analogRead(SENS_DPIN)<SEUILNOIR);
+      } while (analogRead(SENS_DPIN) < SEUILNOIR);
       palet = true;
       GoShoot();
       phase = true;
@@ -858,9 +858,9 @@ void CenterRC() {
       JustRight(300);
       GoUp(200);
       JustRight(300);
-     do{
+      do {
         JustLeft(1);
-      }while(analogRead(SENS_DPIN)<SEUILNOIR);
+      } while (analogRead(SENS_DPIN) < SEUILNOIR);
       palet = true;
       GoShoot();
       phase = true;
