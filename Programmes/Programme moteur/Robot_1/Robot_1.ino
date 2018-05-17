@@ -320,7 +320,7 @@ void GoShoot()
 
 
   if (pos == 41) {
-    CrossRighWithP();
+    CrossRightWithP();
     pos = 1;
   }
 
